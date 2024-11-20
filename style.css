@@ -39,7 +39,8 @@ header{
     left: 0;
     width: 100%;
     background: var(--bg-color);
-    box-shadow:dimgray;
+    box-shadow:0 1px 4px hsl(0 4% 15%/ 10%);
+
 
 }
 
@@ -47,6 +48,6 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 20px ;
 
 }
