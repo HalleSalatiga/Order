@@ -32,6 +32,10 @@ body{
     width: 100%;
 
 }
+section{
+    padding: 4rem 0 3rem;
+    
+}
 
 header{
     position: fixed;
