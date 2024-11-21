@@ -107,6 +107,26 @@ header{
     text-transform: uppercase;
 }
 
+.cart-quantity{
+    border: 1px solid var(--text-color);
+    outline-color: var(--main-color);
+    width: 2.4em;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.cart-remove{
+    font-size:24px;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.total{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--text-color);
+}
 
 .detail-box{
     display: grid;
