@@ -1,7 +1,7 @@
 //cart
 let cartIcon = document.querySelector('#cart-icon');
 let cart = document.querySelector('.cart');
-let closeCart = document.querySelector('.close-cart');
+let closeCart = document.querySelector('bx bx-x');
 //Open Cart
 cartIcon.onClick = () => {
     cart.classList.add('active');
