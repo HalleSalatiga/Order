@@ -79,7 +79,8 @@ header{
     cursor: pointer;
 }
 .cart-active{
-    right: 0;
+    position: relative;
+    right: 50%;
 }
 .cart-title{
     text-align: center;
