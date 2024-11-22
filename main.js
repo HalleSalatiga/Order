@@ -5,12 +5,12 @@ let closeCart = document.querySelector('.close-cart'); // Adjust selector
 
 //Open Cart
 cartIcon.onClick = () => {
-    cart.classList.add('active');
+    cart.classList.add('cart');
 };
 
 //Close Cart
 closeCart.onClick = () => {
-    cart.classList.remove('active');
+    cart.classList.remove('cart');
 };
 
 //Cart Working JS
