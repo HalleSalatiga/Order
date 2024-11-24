@@ -14,3 +14,4 @@ closeCart.addEventListener('click', () => {
 
 let cartItems = 0;
 
+//comment
