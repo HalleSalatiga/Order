@@ -12,6 +12,4 @@ closeCart.addEventListener('click', () => {
     cart.classList.remove('cart-active');
 });
 
-let cartItems = 0;
-
 //comment
