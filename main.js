@@ -12,4 +12,10 @@ closeCart.addEventListener('click', () => {
     cart.classList.remove('cart-active');
 });
 
-//comment
+//Cart Working Js
+if(document.readyState == 'loading'){
+  document.addEventListener('DOMContentLoaded', ready)
+  } else {
+
+    
+  }
