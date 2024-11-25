@@ -40,8 +40,21 @@ function ready() {
     var button = addCart[i];
     button.addEventListener("click", addCartClicked);
   }
+  //Buy Button Work
+  document
+    .getElementsByClassName("btn-buy")[0]
+    .addEventListener("click", buyButtonClicked);
 }
+//Buy Button
+function buyButtonClicked(){
+  alert("Your Order IS paleced");
+  var cartContent = document.getElementsByClassName("cart-content")[0];
+  while (cartContent.hasChildNodes()) {
+    cartContent.removeChild(cartContent.firstChild);
+  }
+  updatetotal()
 
+}
 //Remove Items From Cart
 function removeCartItem(event) {
   var buttonClicked = event.target;
@@ -81,9 +94,9 @@ function addProductToCart(title, price, productImg) {
   var cartBoxContent = `
                         <img src="${productImg}" alt="" class="cart-img">
                         <div class="detail-box">
-                            <div class="cart-product-title">Keranjang Kamu</div>
-                            <div class="cart-price">$9</div>
-                            <input type="number" value="1" class="cart-quantity">
+                            <div class="cart-product-title">${title}</div>
+                            <div class="cart-price">${price}</div>
+                            <input type="number" value=cart-price"1" class="cart-quantity">
                         </div>
                         <!---Remove--->
                         <i class='bx bxs-trash-alt cart-remove'></i>`;
@@ -105,9 +118,10 @@ function updatetotal() {
     var price = parseFloat(priceElement.innerText.replace("$", ""));
     var quantity = quantityElement.value;
     total = total + price * quantity;
-    //If price Contain some Cents Value
-    total = Math.round(total * 100) / 100;
   }
+  //If price Contain some Cents Value
+  total = Math.round(total * 100) / 100;
+  
   document.getElementsByClassName("total-price")[0].innerText = "$" + total;
 }
 
