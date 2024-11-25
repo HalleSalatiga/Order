@@ -72,27 +72,27 @@ function addProductToCart(title, price, productImg) {
   var cartItems = document.getElementsByClassName("cart-content")[0];
   var cartItemsNames = cartItems.getElementsByClassName("cart-product-title");
   for (var i = 0; i < cartItemsNames.length; i++) {
-    if (cartItemsNames[i].innerText == title){
+    if (cartItemsNames[i].innerText == title) {
       alert("You Have Already add this item to cart");
       return;
     }
   }
 
-var cartBoxContent = `
-                        <img src="img/img7.jpg" alt="" class="cart-img">
+  var cartBoxContent = `
+                        <img src="${productImg}" alt="" class="cart-img">
                         <div class="detail-box">
                             <div class="cart-product-title">Keranjang Kamu</div>
                             <div class="cart-price">$9</div>
                             <input type="number" value="1" class="cart-quantity">
                         </div>
                         <!---Remove--->
-                        <i class='bx bxs-trash cart-remove'></i>`;
-cartShopBox.innerHTML = cartBoxContent
-cartItems.append(cartShopBox)
-cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click', removeCartItem)
-cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change', quantityChanged);
-}
+                        <i class='bx bxs-trash-alt cart-remove'></i>`;
+  cartShopBox.innerHTML = cartBoxContent;
+  cartItems.append(cartShopBox);
+  cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click', removeCartItem);
+  cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change', quantityChanged);
 
+}
 //Update Total
 function updatetotal() {
   var cartContent = document.getElementsByClassName("cart-content")[0];
@@ -110,3 +110,4 @@ function updatetotal() {
   }
   document.getElementsByClassName("total-price")[0].innerText = "$" + total;
 }
+
