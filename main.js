@@ -46,14 +46,13 @@ function ready() {
     .addEventListener("click", buyButtonClicked);
 }
 //Buy Button
-function buyButtonClicked(){
-  alert("Your Order IS paleced");
+function buyButtonClicked() {
+  alert("Your Order IS placed");
   var cartContent = document.getElementsByClassName("cart-content")[0];
   while (cartContent.hasChildNodes()) {
     cartContent.removeChild(cartContent.firstChild);
   }
-  updatetotal()
-
+  updatetotal();
 }
 //Remove Items From Cart
 function removeCartItem(event) {
@@ -101,10 +100,13 @@ function addProductToCart(title, price, productImg) {
                         <!---Remove--->
                         <i class='bx bxs-trash-alt cart-remove'></i>`;
   cartShopBox.innerHTML = cartBoxContent;
-  cartItems.append(cartShopBox);
-  cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click', removeCartItem);
-  cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change', quantityChanged);
-
+  cartItems.prepend(cartShopBox);
+  cartShopBox
+    .getElementsByClassName("cart-remove")[0]
+    .addEventListener("click", removeCartItem);
+  cartShopBox
+    .getElementsByClassName("cart-quantity")[0]
+    .addEventListener("change", quantityChanged);
 }
 //Update Total
 function updatetotal() {
@@ -115,13 +117,26 @@ function updatetotal() {
     var cartBox = cartBoxes[i]; // Correct variable name
     var priceElement = cartBox.getElementsByClassName("cart-price")[0];
     var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
-    var price = parseFloat(priceElement.innerText.replace("$", ""));
+    var price = parseFloat(priceElement.innerText.replace("Rp.", ""));
     var quantity = quantityElement.value;
     total = total + price * quantity;
   }
   //If price Contain some Cents Value
-  total = Math.round(total * 100) / 100;
-  
-  document.getElementsByClassName("total-price")[0].innerText = "$" + total;
+  total = Math.round(total * 1000);
+
+  document.getElementsByClassName("total-price")[0].innerText = "Rp." + currencyFormatter(total);
 }
 
+function currencyFormatter(initValue) {
+  let val = initValue.toString()
+  let total = ''
+  for (let i = 0; i < val.length; i++) { 
+    if (i % 3 == 0 && i != 0) {
+      total = '.' + total
+    }
+
+    total = val[val.length - (1 + i)] + total
+  }
+
+  return total;
+}
