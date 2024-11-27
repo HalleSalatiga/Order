@@ -139,3 +139,36 @@ function currencyFormatter(initValue) {
   }
   return total;
 }
+function buyButtonClicked() {
+  // Ambil informasi dari keranjang
+  var cartContent = document.getElementsByClassName("cart-content")[0];
+  var cartBoxes = cartContent.getElementsByClassName("cart-box");
+  var total = (total);
+  var orderDetails = "Pesanan Anda:\n";
+
+  for (var i = 0; i < cartBoxes.length; i++) {
+    var cartBox = cartBoxes[i];
+    var titleElement = cartBox.getElementsByClassName("cart-product-title")[0];
+    var priceElement = cartBox.getElementsByClassName("cart-price")[0];
+    var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
+
+    var title = titleElement.innerText;
+    var price = priceElement.innerText;
+    var quantity = quantityElement.value;
+
+    orderDetails += `${title} - ${price} x ${quantity}\n`;
+  }
+
+  // Format pesan untuk WhatsApp
+  var message = encodeURIComponent(orderDetails);
+  var whatsappUrl = `https://api.whatsapp.com/send?text=${message}`;
+
+  // Arahkan pengguna ke WhatsApp
+  window.open(whatsappUrl, "https://api.whatsapp.com/send?phone=6285728113163?text=${message}");
+
+  // Kosongkan keranjang
+  while (cartContent.hasChildNodes()) {
+    cartContent.removeChild(cartContent.firstChild);
+  }
+  updatetotal();
+}
