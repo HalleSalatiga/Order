@@ -137,6 +137,5 @@ function currencyFormatter(initValue) {
 
     total = val[val.length - (1 + i)] + total
   }
-
   return total;
 }
