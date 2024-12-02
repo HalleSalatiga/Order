@@ -159,12 +159,14 @@ function buyButtonClicked() {
     orderDetails += `${title} - ${price} x ${quantity}\n`;
   }
 
+  //Nomor pesan untuk whatsapp
+  var phoneNumber = "6285728113163";
   // Format pesan untuk WhatsApp
   var message = encodeURIComponent(orderDetails);
-  var whatsappUrl = `https://api.whatsapp.com/send?text=${message}`;
+  var whatsappUrl = `https://api.whatsapp.com/send?phone=${6285728113163}&text=${message}`;
 
   // Arahkan pengguna ke WhatsApp
-  window.open(whatsappUrl, "https://api.whatsapp.com/send?phone=6285728113163?text=${message}");
+  window.open(whatsappUrl, "_blank");
 
   // Kosongkan keranjang
   while (cartContent.hasChildNodes()) {
