@@ -160,10 +160,10 @@ function buyButtonClicked() {
   }
 
   //Nomor pesan untuk whatsapp
-  var phoneNumber = "6285728113163";
+  var phoneNumber = "628562773554";
   // Format pesan untuk WhatsApp
   var message = encodeURIComponent(orderDetails);
-  var whatsappUrl = `https://api.whatsapp.com/send?phone=${6285728113163}&text=${message}`;
+  var whatsappUrl = `https://api.whatsapp.com/send?phone=${628562773554}&text=${message}`;
 
   // Arahkan pengguna ke WhatsApp
   window.open(whatsappUrl, "_blank");
